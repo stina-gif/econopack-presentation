@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Econopack - AI & Digital Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;600;700&family=Young+Serif&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Bitter', serif;
+            background: #EAE6DD;
+            color: #2D2D2A;
+            overflow-x: hidden;
+        }
+
+        .presentation {
+            display: flex;
+            flex-direction: column;
+            width: 100vw;
+            background: #EAE6DD;
+        }
+
+        .slide {
+            display: flex;
+            width: 100%;
+            min-height: 100vh;
+            padding: 80px 100px;
+            background: linear-gradient(135deg, #EAE6DD 0%, #FFFFFF 100%);
+            position: relative;
+            animation: fadeIn 0.4s ease-in;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Typography */
+        h1 {
+            font-family: 'Young Serif', serif;
+            font-size: 96px;
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+            color: #2D2D2A;
+        }
+
+        h2 {
+            font-family: 'Bitter', serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            letter-spacing: -0.5px;
+            color: #2D2D2A;
+        }
+
+        .accent {
+            color: #EDD286;
+            font-weight: 400;
+        }
+
+        .subtitle {
+            font-family: 'Bitter', serif;
+            font-size: 18px;
+            color: #2D2D2A;
+            line-height: 1.7;
+            margin: 24px 0 48px;
+            max-width: 700px;
+        }
+
+        .label {
+            font-family: 'Clarkson', Arial, sans-serif;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #2D2D2A;
+            opacity: 0.6;
+            margin-bottom: 32px;
+            font-weight: 600;
+        }
+
+        /* Price styling */
+        .price-box {
+            background: rgba(237, 210, 134, 0.15);
+            border-left: 4px solid #EDD286;
+            padding: 40px;
+            margin: 40px 0;
+            max-width: 550px;
+            border-radius: 2px;
+        }
+
+        .price-label {
+            font-family: 'Clarkson', Arial, sans-serif;
+            font-size: 12px;
+            color: #2D2D2A;
+            opacity: 0.6;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .price-amount {
+            font-family: 'Bitter', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #2D2D2A;
+            margin-bottom: 12px;
+        }
+
+        .price-note {
+            font-family: 'Bitter', serif;
+            font-size: 14px;
+            color: #2D2D2A;
+            opacity: 0.6;
+        }
+
+        /* Features list */
+        .features {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin: 40px 0;
+            max-width: 700px;
+        }
+
+        .feature-item {
+            padding: 18px 20px;
+            background: rgba(123, 181, 178, 0.08);
+            border-left: 3px solid #7BB5B2;
+            border-radius: 2px;
+            font-family: 'Bitter', serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #2D2D2A;
+        }
+
+        .feature-item strong {
+            color: #2D2D2A;
+            font-weight: 700;
+        }
+
+        /* Grid for values */
+        .values-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin: 48px 0;
+            max-width: 800px;
+        }
+
+        .value-card {
+            background: rgba(237, 210, 134, 0.15);
+            padding: 32px;
+            border-radius: 2px;
+            border-left: 4px solid #EDD286;
+        }
+
+        .value-label {
+            font-family: 'Clarkson', Arial, sans-serif;
+            font-size: 12px;
+            color: #2D2D2A;
+            opacity: 0.6;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .value-amount {
+            font-family: 'Bitter', serif;
+            font-size: 40px;
+            font-weight: 700;
+            color: #2D2D2A;
+            margin-bottom: 8px;
+        }
+
+        .value-note {
+            font-family: 'Bitter', serif;
+            font-size: 14px;
+            color: #2D2D2A;
+            opacity: 0.6;
+            line-height: 1.6;
+        }
+
+        /* Buttons */
+        .button-group {
+            display: flex;
+            gap: 16px;
+            margin-top: 48px;
+        }
+
+        .button {
+            padding: 16px 40px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            font-family: 'Clarkson', Arial, sans-serif;
+        }
+
+        .button-primary {
+            background: #7BB5B2;
+            color: #FFFFFF;
+            border: none;
+        }
+
+        .button-primary:hover {
+            background: #6a9c99;
+            transform: translateY(-2px);
+        }
+
+        .button-secondary {
+            background: transparent;
+            color: #2D2D2A;
+            border: 2px solid #2D2D2A;
+        }
+
+        .button-secondary:hover {
+            background: #2D2D2A;
+            color: #FFFFFF;
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            z-index: 100;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator p {
+            font-family: 'Clarkson', Arial, sans-serif;
+            font-size: 12px;
+            color: #2D2D2A;
+            opacity: 0.6;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .scroll-indicator svg {
+            width: 20px;
+            height: 20px;
+            stroke: #2D2D2A;
+            stroke-width: 2;
+            opacity: 0.6;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(8px);
+            }
+        }
+
+
+
+        .tagline {
+            font-family: 'Bitter', serif;
+            font-size: 26px;
+            margin-top: 80px;
+            color: #2D2D2A;
+            max-width: 700px;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        .tagline .accent {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .slide {
+                padding: 60px 40px;
+            }
+
+            h1 {
+                font-size: 56px;
+            }
+
+            h2 {
+                font-size: 36px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .button-group {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .button {
+                width: 100%;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <!-- Slide 1: Title -->
+        <div class="slide title-slide active">
+            <div class="label">AI & Digital Solutions</div>
+            <h1>Econopack</h1>
+            <p class="tagline">
+                <span class="accent">Offerter efter besök.</span> 
+                Accelerate growth with intelligent automation.
+            </p>
+        </div>
+
+        <!-- Slide 2: Content Plåtning -->
+        <div class="slide">
+            <div class="label">Löpande Content Production</div>
+            <h2>Content <span class="accent">Plåtning</span></h2>
+            <p class="subtitle">Regelbundna produktionssessioner för organiska Instagram & Facebook och creatives för kommande period.</p>
+            
+            <div class="price-box">
+                <div class="price-label">Varannan månad</div>
+                <div class="price-amount">10 000 kr</div>
+                <div class="price-note">ex moms • 13 gånger/år = 130 000 kr</div>
+            </div>
+
+            <div class="features">
+                <div class="feature-item"><strong>10 UGC-bilder</strong> — autentisk, användarfokuserad content</div>
+                <div class="feature-item"><strong>5 High End-bilder</strong> — professionell produktion, högt värde</div>
+                <div class="feature-item"><strong>2 Reels</strong> — Instagram videomotion</div>
+            </div>
+        </div>
+
+        <!-- Slide 3: IG/LinkedIn Agent -->
+        <div class="slide">
+            <div class="label">Intelligent Automation</div>
+            <h2>IG & LinkedIn <span class="accent">AI Agent</span></h2>
+            <p class="subtitle">Automatiserad strategiplanering och innehållskalender, integrerad med din Notion.</p>
+            
+            <div class="price-box">
+                <div class="price-label">Månadlig prenumeration</div>
+                <div class="price-amount">5 000 kr</div>
+                <div class="price-note">ex moms</div>
+            </div>
+
+            <div class="features">
+                <div class="feature-item"><strong>Automatisk strategiplanering</strong> — AI analyserar trender och målgrupp</div>
+                <div class="feature-item"><strong>Innehållskalender</strong> — AI-driven förslag för optimalt engagemang</div>
+                <div class="feature-item"><strong>Notion-integration</strong> — allt synkas i ditt system</div>
+                <div class="feature-item"><strong>Professionell exekvering</strong> — konsekvent brand voice</div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Notion -->
+        <div class="slide">
+            <div class="label">Project Management</div>
+            <h2>Notion <span class="accent">Systemkonfiguration</span></h2>
+            <p class="subtitle">Anpassad setup och löpande support för ditt projektledningssystem.</p>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-label">Engångsuppsättning</div>
+                    <div class="value-amount">25 000 kr</div>
+                    <div class="value-note">Full konfiguration & UX-design</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-label">Löpande support</div>
+                    <div class="value-amount">3 000 kr/mån</div>
+                    <div class="value-note">3 timmar/månad — tillsvidare</div>
+                </div>
+            </div>
+
+            <div class="features" style="max-width: 700px; margin-top: 48px;">
+                <div class="feature-item">Innehållskalender med automation</div>
+                <div class="feature-item">Team collaboration & approval workflows</div>
+                <div class="feature-item">Inköps- & orderöversikt — kolla på alla ordrar och offerter</div>
+            </div>
+        </div>
+
+        <!-- Slide 5: AI Prospektering -->
+        <div class="slide">
+            <div class="label">Business Intelligence</div>
+            <h2>AI <span class="accent">Prospekteringsverktyg</span></h2>
+            <p class="subtitle">Custom-build AI agent för identifiering och personaliserad outreach till B2B-leads.</p>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-label">Utveckling</div>
+                    <div class="value-amount">30 000 kr</div>
+                    <div class="value-note">Custom AI-agent & integration</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-label">Löpande support</div>
+                    <div class="value-amount">3 000 kr/mån</div>
+                    <div class="value-note">3 timmar/månad — tillsvidare</div>
+                </div>
+            </div>
+
+            <div class="features" style="margin-top: 48px;">
+                <div class="feature-item"><strong>Automatisk prospektering</strong> — identifierar kvalitativa leads</div>
+                <div class="feature-item"><strong>Personaliserad outreach</strong> — AI-genererade email & LinkedIn meddelanden</div>
+                <div class="feature-item"><strong>CRM-integration</strong> — synkas direkt</div>
+                <div class="feature-item"><strong>Tracking och optimering</strong> — performance reports & optimization</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator">
+        <p>Scrolla</p>
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 5v14M19 13l-7 7-7-7" stroke="currentColor"/>
+        </svg>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            slides[currentSlide].scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowDown' || e.key === ' ') {
+                e.preventDefault();
+                showSlide(currentSlide + 1);
+            }
+            if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                showSlide(currentSlide - 1);
+            }
+        });
+
+        // Scroll detection
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                slides.forEach((slide, index) => {
+                    const rect = slide.getBoundingClientRect();
+                    if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
+                        currentSlide = index;
+                    }
+                });
+            }, 100);
+        });
+
+        showSlide(0);
+    </script>
+</body>
+</html>
